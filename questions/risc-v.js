@@ -126,5 +126,52 @@ strncpy_and_to_upper:
     addi sp, sp, 16
     ret`,
     },
+    {
+      question: `Aufgabe 2 - RISC-V Basics (6 Punkte)
+
+a) Nennen Sie 4 Instruktionen inkl. Argumente, die das Register t0 nullen. Benutzen Sie keine Pseudoinstruktionen und verwenden Sie jede Instruktion nur einmal.
+
+b) Gegeben sei folgender C-Code:
+
+char calc(char a, char b, char c, char d, char e, char f, char g, char h, char i, char k) {
+  return c + f;
+}
+
+char calc2(char a, char b, char c, char d, char e, char f, char g, char h, char i, char k) {
+  return e + k;
+}
+
+Uebersetzen Sie calc in RISC-V Assembly und beachten Sie die Calling Convention.
+Vordruck:
+calc:
+add  __, __, __
+andi __, __, 0xff
+ret
+
+c) Warum ist die Anwendung der Bitmaske 0xff vor dem Return noetig?
+
+d) Implementieren Sie calc2 in RISC-V Assembly.`,
+      answer: `a) Beispiele (jeweils einmal):
+- addi t0, zero, 0
+- add  t0, zero, zero
+- and  t0, zero, zero
+- andi t0, zero, 0
+
+b) calc:
+calc:
+    add  a0, a2, a5
+    andi a0, a0, 0xff
+    ret
+
+c) Grund fuer 0xff:
+Damit ein char (8-Bit) zurueckgegeben wird und hoehere Bits (z.B. nach Overflow) abgeschnitten werden.
+
+d) calc2:
+calc2:
+    lbu  a5, 4(sp)
+    add  a0, a4, a5
+    andi a0, a0, 0xff
+    ret`,
+    },
   ]
 );
