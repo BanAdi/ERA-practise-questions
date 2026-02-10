@@ -19,6 +19,10 @@ let currentTopic = null;
 let currentQuestions = [];
 let currentIndex = 0;
 
+function updateAnswerButtonLabel() {
+  showAnswerBtn.textContent = answerBlock.hidden ? "Show Answer" : "Hide Answer";
+}
+
 function shuffledCopy(items) {
   const arr = [...items];
   for (let i = arr.length - 1; i > 0; i -= 1) {
@@ -68,6 +72,7 @@ function renderMcqOptions(card) {
 function revealCorrectAnswer(card) {
   answerText.textContent = card.answer;
   answerBlock.hidden = false;
+  updateAnswerButtonLabel();
 }
 
 function renderQuestion() {
@@ -81,6 +86,7 @@ function renderQuestion() {
     mcqBlock.hidden = true;
     checkAnswerBtn.hidden = true;
     showAnswerBtn.hidden = false;
+    updateAnswerButtonLabel();
     statusEl.textContent = "0 questions";
     return;
   }
@@ -100,6 +106,7 @@ function renderQuestion() {
 
   answerText.textContent = card.answer;
   answerBlock.hidden = true;
+  updateAnswerButtonLabel();
   mcqResult.textContent = "";
 
   const isMcq = Array.isArray(card.options) && Array.isArray(card.correctOptionIndexes);
@@ -107,7 +114,7 @@ function renderQuestion() {
     renderMcqOptions(card);
     mcqBlock.hidden = false;
     checkAnswerBtn.hidden = false;
-    showAnswerBtn.hidden = true;
+    showAnswerBtn.hidden = false;
   } else {
     mcqBlock.hidden = true;
     checkAnswerBtn.hidden = true;
@@ -144,7 +151,8 @@ topicSelect.addEventListener("change", (event) => {
 });
 
 showAnswerBtn.addEventListener("click", () => {
-  answerBlock.hidden = false;
+  answerBlock.hidden = !answerBlock.hidden;
+  updateAnswerButtonLabel();
 });
 
 checkAnswerBtn.addEventListener("click", () => {
