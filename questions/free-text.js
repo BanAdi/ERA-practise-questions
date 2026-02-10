@@ -55,5 +55,57 @@ c) Beschriftung
 (3)+(4) = Miss penalty
 (1)+(2)+(3)+(4) = Miss latency (miss time)`,
     },
+    {
+      question:
+        "f) Welche Binaerzahl erhalten Sie, wenn Sie die Zahl 1011 0100 (interpretiert als 8-Bit signed char) durch 4 teilen?",
+      answer: "1110 1101",
+    },
+    {
+      question: "g) Nennen Sie alle Werke der Von-Neumann-Architektur.",
+      answer: "Speicher-Werk, Rechen-Werk, Leit-Werk, E/A-Werk",
+    },
+    {
+      question:
+        "h) Nennen und erklaeren Sie kurz einen Vorteil einer Einadressmaschine (Akkumulatormaschine).",
+      answer: `Moegliche Vorteile:
+- Einfach, da Ergebnis immer an gleicher Stelle liegt und direkt fuer Folgeoperationen nutzbar ist.
+- Einfaches Instruktionsformat, da weniger Operanden kodiert werden muessen.
+- Einfacher und guenstiger zu bauen, da der Akkumulator direkt an die ALU angebunden ist.`,
+    },
+    {
+      question:
+        "i) Nennen und erklaeren Sie kurz einen Nachteil einer Einadressmaschine (Akkumulatormaschine).",
+      answer: `Moegliche Nachteile:
+- Unflexibel, da der Akkumulator oft geladen/gespeichert werden muss.
+- Schwieriger bzw. unintuitiver zu programmieren, da Ziel- und Quelloperand stark vorgegeben sind.`,
+    },
+    {
+      question: "j) Nennen Sie 3 Hauptklassen von Befehlen in einer ISA.",
+      answer: `Arithmetisch/logische Operationen, Datentransfer (Load/Store), Steuerung des Programmablaufs (Spruenge).
+Haefig ebenfalls genannt: Systembefehle/Interrupts.`,
+    },
+    {
+      question:
+        "k) Ist eine klare Trennung zwischen RISC- und CISC-Architekturen heutzutage moeglich? Begruenden Sie.",
+      answer:
+        "Nein. In der Praxis verschwimmen die Grenzen: CISC-Architekturen nutzen oft RISC-aehnliche Kerne, und RISC-Erweiterungen koennen CISC-artige Merkmale haben.",
+    },
+    {
+      question:
+        "l) Welchen Vorteil hat das MESI-Protokoll gegenueber MSI durch den E-Zustand?",
+      answer:
+        "E steht fuer Exclusive. Bei exklusiv gehaltenen Daten kann ein Upgrade ohne unnoetige Bus-Interaktion erfolgen, wodurch Zugriffe schneller werden und Busverkehr sinkt.",
+    },
+    {
+      question: "m) Wann wird ein Cache als kohaerent bezeichnet?",
+      answer:
+        "Wenn gemeinsam gehaltene Daten ueber alle Caches hinweg konsistent/synchron erscheinen, also ein Zugriff keine widerspruechlichen Versionen liefert.",
+    },
+    {
+      question:
+        "n) Wann wird ein paralleles System als sequentiell konsistent bezeichnet?",
+      answer:
+        "Wenn die parallele Ausfuehrung dasselbe Ergebnis liefert wie eine bestimmte (feste) sequentielle Reihenfolge der Operationen.",
+    },
   ]
 );
