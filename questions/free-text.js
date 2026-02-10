@@ -154,5 +154,41 @@ Haefig ebenfalls genannt: Systembefehle/Interrupts.`,
       answer:
         "Der PC haelt die Adresse der naechsten auszufuehrenden Instruktion und steuert damit den Programmablauf (z.B. PC+4 oder Sprungziel).",
     },
+    {
+      question: `Aufgabe 5 - Cache-Aufgabe (a-e)
+
+a) Wie gross ist der Cache insgesamt (in Byte)?
+
+b) Wie viele Bits fuer Index, Offset, Tag? (16-Bit Adressen, byte-adressierbar)
+
+c) In welchem Cache-Set (ab 0) wird Adresse 0xDEB6 gecached?
+
+d) Nennen Sie einen Vor- und Nachteil von mengenassoziativen Caches gegenueber direct-mapped Caches.
+
+e) Nennen und erklaeren Sie die beiden Lokalitaetsprinzipien.`,
+      answer: `a) Cachegroesse
+Cache size = #sets * associativity * line size
+           = 8 * 4 * 8
+           = 256 Byte
+
+b) Bitaufteilung
+- Line size = 8 Byte -> Offset = log2(8) = 3 Bits
+- #Sets = 8 -> Index = log2(8) = 3 Bits
+- Adresse = 16 Bits -> Tag = 16 - 3 - 3 = 10 Bits
+Ergebnis: Index = 3, Offset = 3, Tag = 10
+
+c) Adresse 0xDEB6
+index = (0xDEB6 >> 3) & 0b111 = 6
+Ergebnis: Set 6
+Extra: offset = 0xDEB6 & 7 = 6, tag = 0xDEB6 >> 6 = 0x37A
+
+d) Mengenassoziativ vs. direct-mapped
+Vorteil: weniger Conflict Misses.
+Nachteil: hoehere Hardware-Komplexitaet (mehr Tag-Vergleiche), oft mehr Energiebedarf und potenziell etwas hoehere Hit-Time.
+
+e) Lokalitaet
+Temporal locality (zeitlich): kuerzlich genutzte Daten werden bald wieder genutzt.
+Spatial locality (raeumlich): nach Zugriff auf Adresse X werden oft nahe Adressen (X+1, X+2, ...) genutzt.`,
+    },
   ]
 );
