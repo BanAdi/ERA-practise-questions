@@ -33,6 +33,12 @@
         <p class="prompt-label">Question</p>
         <h2 id="questionText"></h2>
 
+        <div id="mcqBlock" hidden>
+          <p class="prompt-label">Options</p>
+          <div class="mcq-options" id="mcqOptions"></div>
+          <p class="mcq-result" id="mcqResult"></p>
+        </div>
+
         <div class="answer" id="answerBlock" hidden>
           <p class="prompt-label">Answer</p>
           <p id="answerText"></p>
@@ -40,12 +46,13 @@
 
         <div class="actions">
           <button id="showAnswerBtn" type="button">Show Answer</button>
+          <button id="checkAnswerBtn" type="button" hidden>Check Answer</button>
           <button id="nextBtn" type="button">Next Question</button>
         </div>
       </section>
     </main>
 
-    <script src="questions.js?v=20260210"></script>
-    <script src="app.js?v=20260210"></script>
+    <script src="questions.js?v=20260211"></script>
+    <script src="app.js?v=20260211"></script>
   </body>
 </html>
