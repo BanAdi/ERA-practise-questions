@@ -107,5 +107,52 @@ Haefig ebenfalls genannt: Systembefehle/Interrupts.`,
       answer:
         "Wenn die parallele Ausfuehrung dasselbe Ergebnis liefert wie eine bestimmte (feste) sequentielle Reihenfolge der Operationen.",
     },
+    {
+      question:
+        "o) Welche Binaerzahl erhalten Sie, wenn Sie die Zahl 1110 1000 (als 8-Bit signed char) arithmetisch um 2 Stellen nach rechts shiften?",
+      answer:
+        "1111 1010 (1110 1000 ist -24, arithmetisch >> 2 ergibt -6, und -6 ist 1111 1010).",
+    },
+    {
+      question:
+        "p) Worin liegt der zentrale Unterschied zwischen Von-Neumann- und Harvard-Architektur bezueglich des Speichers?",
+      answer:
+        "Von-Neumann: gemeinsamer Speicher/Bus fuer Programm und Daten. Harvard: getrennte Speicher/Busse fuer Programm und Daten.",
+    },
+    {
+      question:
+        "q) Nennen Sie einen Vorteil einer Nulladressmaschine (Stack-Maschine).",
+      answer:
+        "Sehr kompaktes Instruktionsformat ohne explizite Operandenadressen; ausserdem gut fuer die Auswertung komplexer Ausdruecke.",
+    },
+    {
+      question:
+        "r) Was versteht man in RISC-V unter einer Load/Store-Architektur?",
+      answer:
+        "Arithmetische/logische Operationen arbeiten nur auf Registern. Speicherzugriffe erfolgen ausschliesslich ueber explizite Load-/Store-Instruktionen.",
+    },
+    {
+      question:
+        "s) Nennen Sie zwei typische Nachteile einer CISC-Architektur.",
+      answer:
+        "Typisch sind aufwendige/langsamere Dekodierung (z.B. variable Befehlslaengen) und erschwertes Pipelining wegen uneinheitlicher Instruktionsdauer.",
+    },
+    {
+      question:
+        "t) Beschreiben Sie die Bedeutung des Zustands Modified (M) im MSI-Protokoll.",
+      answer:
+        "Der Block liegt nur in diesem Cache und ist veraendert (dirty); der Hauptspeicher enthaelt noch einen veralteten Wert.",
+    },
+    {
+      question:
+        "u) Welchen Vorteil bietet Write-Back gegenueber Write-Through bei Caches?",
+      answer:
+        "Write-Back schreibt erst bei Verdraengung zurueck und reduziert dadurch Busverkehr/Hauptspeicherzugriffe deutlich.",
+    },
+    {
+      question: "v) Wozu dient der Program Counter (PC) in einem Prozessor?",
+      answer:
+        "Der PC haelt die Adresse der naechsten auszufuehrenden Instruktion und steuert damit den Programmablauf (z.B. PC+4 oder Sprungziel).",
+    },
   ]
 );
