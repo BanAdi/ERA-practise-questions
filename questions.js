@@ -447,8 +447,49 @@ const QUESTION_BANK = [
     topic: "RISC-V",
     questions: [
       {
-        question: "Add your first RISC-V question here.",
-        answer: "Add the answer here.",
+        question: `Aufgabe - RISC-V Basics (10 Punkte)
+
+Nehmen Sie fuer die folgenden Aufgaben an, dass ein short 16-Bit und ein int 32-Bit gross ist. Ausserdem seien die Register im Prozessor 32-Bit gross.
+
+Gegeben sei folgendes RISC-V Unterprogramm mystery, das zwei Argumente entgegennimmt:
+
+mystery:
+li   t0, 1
+sll  t0, t0, a1
+addi t0, t0, -1
+and  a0, a0, t0
+ret
+
+a) Sei a0 := 0b1001 1101 und a1 := 0b11. Welche Binaerzahl (ohne fuehrende Nullen) gibt mystery zurueck?
+
+b) Welche mathematische Operation setzt mystery um?
+
+c) Gegeben sei folgender C-Code:
+
+int calc(short arr[], unsigned int idx)
+{
+  return arr[idx] * 43;
+}
+
+Uebersetzen Sie calc in RISC-V Assembly.
+
+d) Schreiben Sie ein RISC-V Unterprogramm extend, das einen 16-Bit Eingabewert auf 32-Bit sign-extended. Der Eingabewert liegt in den unteren 16 Bits des Registers.
+Hinweis: Die Musterloesung kommt mit insgesamt 4 Zeilen aus.`,
+        answer: `a) 101
+b) a0 mod 2^a1 (aequivalent: a0 & (2^a1 - 1))
+
+c) calc:
+   slli t0, a1, 1
+   add  t0, a0, t0
+   lh   t1, 0(t0)
+   li   t2, 43
+   mul  a0, t1, t2
+   ret
+
+d) extend:
+   slli a0, a0, 16
+   srai a0, a0, 16
+   ret`,
       },
     ],
   },
