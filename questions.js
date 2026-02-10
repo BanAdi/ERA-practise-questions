@@ -225,6 +225,150 @@ const QUESTION_BANK = [
         correctOptionIndexes: [2],
         answer: "1 = Amdahl's law, 2 = Gustafson's law.",
       },
+      {
+        question:
+          "Wie lautet die binaere Repraesentation der Zahl -1 in 8-Bit Zweierkomplementdarstellung?",
+        options: ["1000 0001", "0000 0001", "1111 1111", "1111 1110"],
+        correctOptionIndexes: [2],
+        answer: "1111 1111",
+      },
+      {
+        question:
+          "Welcher Wert ergibt sich, wenn Sie die Zahl 1000 0000 als 8-Bit signed char (Zweierkomplement) interpretieren?",
+        options: ["128", "0", "-128", "-1"],
+        correctOptionIndexes: [2],
+        answer: "-128",
+      },
+      {
+        question:
+          "Welcher Wert ergibt sich, wenn Sie die Zahl 1000 0000 als 8-Bit unsigned char interpretieren?",
+        options: ["128", "256", "1", "127"],
+        correctOptionIndexes: [0],
+        answer: "128",
+      },
+      {
+        question:
+          "Was ist ein charakteristisches Merkmal der Von-Neumann-Architektur?",
+        options: [
+          "Getrennte Speicher fuer Befehle und Daten (Harvard)",
+          "Gemeinsamer Speicher fuer Befehle und Daten",
+          "Verwendung von VLIW (Very Long Instruction Word)",
+          "Verzicht auf ein Steuerwerk",
+        ],
+        correctOptionIndexes: [1],
+        answer: "Gemeinsamer Speicher fuer Befehle und Daten",
+      },
+      {
+        question: "Was versteht man unter dem Von-Neumann-Flaschenhals?",
+        options: [
+          "Die begrenzte Anzahl an Registern im Prozessor",
+          "Die langsame Taktfrequenz alter Prozessoren",
+          "Die Limitierung der Datenuebertragungsrate zwischen CPU und Speicher",
+          "Die fehlende Unterstuetzung fuer Gleitkommazahlen",
+        ],
+        correctOptionIndexes: [2],
+        answer:
+          "Die Limitierung der Datenuebertragungsrate zwischen CPU und Speicher",
+      },
+      {
+        question:
+          "Welche Eigenschaft trifft typischerweise auf CISC-Architekturen (im Vergleich zu RISC) zu?",
+        options: [
+          "Variable Befehlslaenge und komplexe Instruktionen",
+          "Load-Store-Architektur (typisch fuer RISC)",
+          "Sehr viele Register (z.B. > 100)",
+          "Einheitliches Befehlsformat (typisch fuer RISC)",
+        ],
+        correctOptionIndexes: [0],
+        answer: "Variable Befehlslaenge und komplexe Instruktionen",
+      },
+      {
+        question:
+          "Welches Register hat in der RISC-V Architektur (RV32I) immer den Wert 0?",
+        options: ["x1 (ra)", "x2 (sp)", "x31 (t6)", "x0 (zero)"],
+        correctOptionIndexes: [3],
+        answer: "x0 (zero)",
+      },
+      {
+        question:
+          "Wie viele Bits umfasst der Standard-ASCII-Code zur Kodierung eines Zeichens?",
+        options: ["8 Bit", "7 Bit", "16 Bit", "32 Bit"],
+        correctOptionIndexes: [1],
+        answer: "7 Bit",
+      },
+      {
+        question:
+          "Mit welchem logischen Gatter laesst sich jede beliebige boolesche Funktion realisieren (funktionale Vollstaendigkeit)?",
+        options: ["AND", "OR", "XOR", "NAND"],
+        correctOptionIndexes: [3],
+        answer: "NAND (oder NOR)",
+      },
+      {
+        question: "Was passiert bei einem Data Hazard (Datenkonflikt) in einer Pipeline?",
+        options: [
+          "Der Befehlszaehler (PC) wird auf 0 gesetzt.",
+          "Ein Befehl springt an eine falsche Adresse.",
+          "Ein Befehl benoetigt das Ergebnis eines vorherigen Befehls, das noch nicht verfuegbar ist.",
+          "Zwei Befehle versuchen gleichzeitig in den Speicher zu schreiben.",
+        ],
+        correctOptionIndexes: [2],
+        answer:
+          "Ein Befehl benoetigt das Ergebnis eines vorherigen Befehls, das noch nicht verfuegbar ist.",
+      },
+      {
+        question:
+          "Welcher RISC-V Befehl eignet sich am besten, um den Inhalt eines Registers t0 mit 4 zu multiplizieren (unsigned)?",
+        options: [
+          "addi t0, t0, 4",
+          "div t0, t0, 4",
+          "slli t0, t0, 2",
+          "srli t0, t0, 2",
+        ],
+        correctOptionIndexes: [2],
+        answer: "slli t0, t0, 2",
+      },
+      {
+        question: "Was bedeutet Little-Endian Speicherung?",
+        options: [
+          "Das hoechstwertige Byte (MSB) steht an der niedrigsten Adresse.",
+          "Das niedrigstwertige Byte (LSB) steht an der niedrigsten Adresse.",
+          "Daten werden immer in 4-Byte-Bloecken gespeichert.",
+          "Befehle werden rueckwaerts ausgefuehrt.",
+        ],
+        correctOptionIndexes: [1],
+        answer: "Das niedrigstwertige Byte (LSB) steht an der niedrigsten Adresse.",
+      },
+      {
+        question:
+          "Wie gross ist der Adressraum bei einer 32-Bit-Architektur (ohne Erweiterungen)?",
+        options: ["2 GiB", "4 GiB (2^32 Byte)", "8 GiB", "16 EiB"],
+        correctOptionIndexes: [1],
+        answer: "4 GiB (2^32 Byte)",
+      },
+      {
+        question: "Welche Aussage zur Calling Convention in RISC-V ist korrekt?",
+        options: [
+          "Alle Register muessen vom Aufrufer (Caller) gesichert werden.",
+          "Register sp (Stack Pointer) darf nach Belieben veraendert werden und muss nicht zurueckgesetzt werden.",
+          "Callee-saved Register (z.B. s0-s11) muessen von der aufgerufenen Funktion wiederhergestellt werden, falls sie veraendert wurden.",
+          "Rueckgabewerte werden im Register ra gespeichert.",
+        ],
+        correctOptionIndexes: [2],
+        answer:
+          "Callee-saved Register muessen von der aufgerufenen Funktion wiederhergestellt werden.",
+      },
+      {
+        question: "Was ist der Hauptzweck eines Caches in modernen Rechnerarchitekturen?",
+        options: [
+          "Die dauerhafte Speicherung von Daten (wie eine Festplatte).",
+          "Die Erhoehung der Anzahl verfuegbarer Register fuer die ALU.",
+          "Die Ueberbrueckung des Geschwindigkeitsunterschieds (Latenz) zwischen schneller CPU und langsamem Hauptspeicher.",
+          "Die Vereinfachung der Assembler-Programmierung.",
+        ],
+        correctOptionIndexes: [2],
+        answer:
+          "Die Ueberbrueckung des Geschwindigkeitsunterschieds zwischen CPU und Hauptspeicher.",
+      },
     ],
   },
   {
