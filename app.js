@@ -14,6 +14,7 @@ const nextBtn = document.getElementById("nextBtn");
 const shuffleBtn = document.getElementById("shuffleBtn");
 
 const QUESTION_BANK = window.QUESTION_BANK || [];
+const LAST_TOPIC_KEY = "flashcards:lastTopic";
 
 let currentTopic = null;
 let currentQuestions = [];
@@ -128,6 +129,10 @@ function loadTopic(topicName) {
   currentTopic = QUESTION_BANK.find((entry) => entry.topic === topicName);
   currentQuestions = [...(currentTopic?.questions || [])];
   currentIndex = 0;
+  topicSelect.value = currentTopic?.topic || "";
+  if (currentTopic?.topic) {
+    localStorage.setItem(LAST_TOPIC_KEY, currentTopic.topic);
+  }
   renderQuestion();
 }
 
@@ -140,7 +145,9 @@ function setupTopics() {
   });
 
   if (QUESTION_BANK.length > 0) {
-    loadTopic(QUESTION_BANK[0].topic);
+    const savedTopic = localStorage.getItem(LAST_TOPIC_KEY);
+    const hasSavedTopic = QUESTION_BANK.some((entry) => entry.topic === savedTopic);
+    loadTopic(hasSavedTopic ? savedTopic : QUESTION_BANK[0].topic);
   } else {
     renderQuestion();
   }
