@@ -1,7 +1,7 @@
 window.registerTopic("RISC-V",
-    [
-      {
-        question: `Aufgabe - RISC-V Basics (10 Punkte)
+  [
+    {
+      question: `Aufgabe - RISC-V Basics (10 Punkte)
 
 Nehmen Sie fuer die folgenden Aufgaben an, dass ein short 16-Bit und ein int 32-Bit gross ist. Ausserdem seien die Register im Prozessor 32-Bit gross.
 
@@ -25,11 +25,11 @@ int calc(short arr[], unsigned int idx)
   return arr[idx] * 43;
 }
 
-Uebersetzen Sie calc in RISC-V Assembly.
+Übersetzen Sie calc in RISC-V Assembly.
 
 d) Schreiben Sie ein RISC-V Unterprogramm extend, das einen 16-Bit Eingabewert auf 32-Bit sign-extended. Der Eingabewert liegt in den unteren 16 Bits des Registers.
 Hinweis: Die Musterloesung kommt mit insgesamt 4 Zeilen aus.`,
-        answer: `a) 101
+      answer: `a) 101
 b) a0 mod 2^a1 (aequivalent: a0 & (2^a1 - 1))
 
 c) calc:
@@ -44,20 +44,47 @@ d) extend:
    slli a0, a0, 16
    srai a0, a0, 16
    ret`,
-      },
-      {
-        question: `Aufgabe - RISC-V String-Unterprogramme
+    },
+    {
+      question: `Aufgabe - RISC-V String-Unterprogramme
 
 a) Schreiben Sie ein RISC-V Unterprogramm to_upper, welches einen Pointer auf einen beliebigen NULL-terminierten String uebergeben bekommt und alle Buchstaben in diesem String in Grossbuchstaben umwandelt.
+to_upper:
+_________
+; Laden eines Chars
+
+; Testen, ob am Ende angekommen und ggf. Sprung
+
+; Testen ob Kleinbuchstabe und Sprung falls nicht
+
+; in Großbuchstaben umwandeln
+
+; Abspeichern
+
+; Pointer inkrementieren und Sprung
+
 
 b) Schreiben Sie ein RISC-V Unterprogramm strncpy(char* src, char* dst, int n), welches die ersten n chars von src nach dst kopiert. Falls src kuerzer als n ist, soll die Funktion fruehzeitig terminieren. Stellen Sie sicher, dass dst danach NULL-terminiert ist.
+strncpy:
+; Laden eines Chars
+; Testen, ob am Ende angekommen
+; Falls nicht, kopieren
+;Pointer und n anpassen
+; Sprung
+; return (schon NULL-terminiert?)
 
 c) Schreiben Sie ein RISC-V Unterprogramm strncpy_and_to_upper(char* src, char* dst, int n), das zuerst strncpy ausfuehrt und danach to_upper auf dst aufruft.
+strncpy_and_to_upper:
+; Vorbereitung für Aufruf
+; strncpy aufrufen
+; Vorbereitung für to_upper
+; to_upper aufrufen
+;return
 
 Hinweis: Nutzen Sie die ASCII-Tabelle aus der Abbildung.`,
-        imageSrc: "ascii-table.png",
-        imageAlt: "ASCII table reference",
-        answer: `a) to_upper
+      imageSrc: "ascii-table.png",
+      imageAlt: "ASCII table reference",
+      answer: `a) to_upper
 to_upper:
     lbu t0, 0(a0)
     beq t0, zero, return
@@ -98,6 +125,6 @@ strncpy_and_to_upper:
     lw   ra, 4(sp)
     addi sp, sp, 16
     ret`,
-      },
-    ]
+    },
+  ]
 );
