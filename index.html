@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Flashcards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-shape shape-a"></div>
+    <div class="background-shape shape-b"></div>
+
+    <main class="container">
+      <header class="hero">
+        <p class="eyebrow">Exam Practice</p>
+        <h1>Flashcards by Topic</h1>
+        <p class="subtitle">Pick a topic and practice your preloaded questions.</p>
+      </header>
+
+      <section class="controls">
+        <label for="topicSelect">Topic</label>
+        <select id="topicSelect"></select>
+
+        <button id="shuffleBtn" type="button">Shuffle Questions</button>
+      </section>
+
+      <section class="status" id="status"></section>
+
+      <section class="card" id="card">
+        <p class="prompt-label">Question</p>
+        <h2 id="questionText"></h2>
+
+        <div class="answer" id="answerBlock" hidden>
+          <p class="prompt-label">Answer</p>
+          <p id="answerText"></p>
+        </div>
+
+        <div class="actions">
+          <button id="showAnswerBtn" type="button">Show Answer</button>
+          <button id="nextBtn" type="button">Next Question</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
