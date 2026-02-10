@@ -173,5 +173,137 @@ calc2:
     andi a0, a0, 0xff
     ret`,
     },
+    {
+      question: `Aufgabe 4 - RISC-V Strings (18 Punkte)
+
+Hinweise:
+- Halten Sie sich an die vorgegebene Struktur und benutzen Sie die Stellen nach den Kommentaren.
+- Zusaetzliche Labels sind erlaubt.
+- Strings liegen im ASCII-Format als C-Strings vor.
+
+a) starts_with
+Schreiben Sie ein Unterprogramm starts_with:
+- Arg1: Pointer auf String
+- Arg2: Pointer auf Substring
+- Rueckgabe: 1 falls String mit Substring beginnt (auch falls Substring leer), sonst 0.
+
+Skeleton:
+starts_with:
+    ; Platz, falls Sie Register sichern wollen
+
+    ; Laden der Buchstaben
+
+    ; Testen, ob am Ende des zweiten Strings angekommen
+
+    ; Testen, ob geladene Buchstaben gleich sind
+
+    ; Pointer inkrementieren und Sprung um naechste Buchstaben zu laden
+
+    ; Rueckgabewerte schreiben
+equal:
+
+not_equal:
+
+b) strstr
+Schreiben Sie strstr:
+- Arg1: Pointer auf String
+- Arg2: Pointer auf Substring
+- Rueckgabe: Pointer auf erstes Vorkommen, sonst 0.
+Verwenden Sie starts_with aus Teil a).
+
+Skeleton:
+strstr:
+    ; Sichern von Registern
+
+    ; Schleife fuer Durchlaufen des ersten Strings
+loop:
+    ; Test, ob am Ende
+
+    ; Aufruf von starts_with
+
+    ; Rueckgabe von starts_with pruefen, sonst weiter suchen
+
+    ; Falls fertig, Adresse zurueckgeben
+found:
+
+    ; Rueckgabe 0, falls nicht gefunden
+not_found:
+
+c) Programmausschnitt + Adresse
+Gegeben:
+prog:
+    la a0, str
+    la a1, substr
+    call strstr
+    ret
+
+.data
+.org 0x400
+substr: .asciz "Welt"
+str:    .asciz "Hallo Welt"
+
+Bestimmen Sie die Rueckgabeadresse (Hex).`,
+      answer: `a) starts_with
+starts_with:
+    lb   t0, 0(a0)
+    lb   t1, 0(a1)
+
+    beqz t1, equal
+
+    bne  t0, t1, not_equal
+    addi a0, a0, 1
+    addi a1, a1, 1
+    j    starts_with
+
+equal:
+    li   a0, 1
+    ret
+
+not_equal:
+    li   a0, 0
+    ret
+
+b) strstr
+strstr:
+    addi sp, sp, -16
+    sw   s0, 0(sp)
+    sw   s1, 4(sp)
+    sw   ra, 8(sp)
+
+    mv   s0, a0
+    mv   s1, a1
+
+loop:
+    lbu  t0, 0(s0)
+    beqz t0, end_not_found
+
+    mv   a0, s0
+    mv   a1, s1
+    call starts_with
+
+    li   t0, 1
+    beq  t0, a0, found
+
+    addi s0, s0, 1
+    j    loop
+
+found:
+    addi a0, s0, 0
+    lw   s0, 0(sp)
+    lw   s1, 4(sp)
+    lw   ra, 8(sp)
+    addi sp, sp, 16
+    ret
+
+end_not_found:
+    li   a0, 0
+    lw   s0, 0(sp)
+    lw   s1, 4(sp)
+    lw   ra, 8(sp)
+    addi sp, sp, 16
+    ret
+
+c) 0x40b`,
+    },
   ]
 );
