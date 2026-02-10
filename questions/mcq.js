@@ -425,5 +425,123 @@ window.registerTopic("MCQ",
         answer:
           "ROBDD ist kanonisch; SAT-Pruefung ist moeglich; Pfade entsprechen Belegungen.",
       },
+      {
+        question: "Wie lautet die binaere Repraesentation der Zahl 0xB4FF?",
+        options: [
+          "1011 0100 1111 1111",
+          "1111 1111 1011 0100",
+          "1111 1111 0100 1011",
+          "0100 1011 1111 1111",
+        ],
+        correctOptionIndexes: [0],
+        answer: "1011 0100 1111 1111",
+      },
+      {
+        question:
+          "Wie lautet die hexadezimale Repraesentation der Binaerzahl 0101 1110?",
+        options: ["0x5E", "0xE5", "0x3D", "0xD3"],
+        correctOptionIndexes: [0],
+        answer: "0x5E",
+      },
+      {
+        question:
+          "Welcher Wert ergibt sich, wenn Sie die Zahl 1100 1101 als 8-Bit unsigned char interpretieren?",
+        options: ["61", "205", "179", "220"],
+        correctOptionIndexes: [1],
+        answer: "205",
+      },
+      {
+        question:
+          "Welcher Wert ergibt sich, wenn Sie die Zahl 1100 1101 als 8-Bit signed char interpretieren?",
+        options: ["-36", "61", "77", "-51"],
+        correctOptionIndexes: [3],
+        answer: "-51",
+      },
+      {
+        question: "Der Wertebereich einer Zahl mit n Bits im Zweierkomplement ist ...",
+        options: [
+          "[-2^(n-1), 2^(n-1)+1]",
+          "[-2^(n-1)+1, 2^(n-1)]",
+          "[-2^(n-1)-1, 2^(n-1)]",
+          "[-2^(n-1), 2^(n-1)-1]",
+        ],
+        correctOptionIndexes: [3],
+        answer: "[-2^(n-1), 2^(n-1)-1]",
+      },
+      {
+        question: "8 KiB sind ...",
+        options: ["8192 Bytes", "65536 Bits", "64000 Bits", "8000 Bytes"],
+        correctOptionIndexes: [0, 1],
+        answer: "8192 Bytes und 65536 Bits",
+      },
+      {
+        question:
+          "Beim Datum 0xC337DE7D im Speicher: Welche Aussagen zu den Abbildungen sind korrekt?",
+        options: [
+          "Abbildung 1.2 zeigt das little-endian Format.",
+          "Abbildung 1.2 zeigt das big-endian Format.",
+          "Abbildung 1.1 zeigt das little-endian Format.",
+          "Abbildung 1.1 zeigt das big-endian Format.",
+        ],
+        correctOptionIndexes: [0, 3],
+        answer: "Abbildung 1.2 = little-endian und Abbildung 1.1 = big-endian",
+      },
+      {
+        question: "Welche Aussagen zu C-Strings und Pascal-Strings sind korrekt?",
+        options: [
+          "C-Strings sind NULL-terminiert.",
+          "C-Strings haben ein Laengenpraefix.",
+          "Pascal-Strings sind NULL-terminiert.",
+          "Pascal-Strings haben ein Laengenpraefix.",
+        ],
+        correctOptionIndexes: [0, 3],
+        answer: "C-Strings NULL-terminiert; Pascal-Strings mit Laengenpraefix",
+      },
+      {
+        question: "Die ASCII-Kodierung arbeitet mit ...",
+        options: ["2 Byte", "7 Bit", "1 Byte", "8 Bit"],
+        correctOptionIndexes: [1],
+        answer: "7 Bit",
+      },
+      {
+        question: `Gegeben:
+struct quiz {
+  long era;
+  int ist;
+  unsigned short super;
+} exam;
+Annahmen: short=16 Bit, int=32 Bit, long=64 Bit, kein Padding.
+Adresse von exam steht in a0. Welche Instruktion laedt ist korrekt in a1?`,
+        options: [
+          "lb a1, 8(a0)",
+          "lh a1, 4(a0)",
+          "lh a1, 8(a0)",
+          "lw a1, 4(a0)",
+          "lb a1, 4(a0)",
+          "lw a1, 8(a0)",
+        ],
+        correctOptionIndexes: [5],
+        answer: "lw a1, 8(a0)",
+      },
+      {
+        question: `Gleiche Struktur/Annahmen wie zuvor, Adresse von exam in a0.
+Welche Instruktion laedt super korrekt in a1?`,
+        options: [
+          "lw a1, 16(a0)",
+          "lb a1, 16(a0)",
+          "lbu a1, 12(a0)",
+          "ld a1, 12(a0)",
+          "lhu a1, 10(a0)",
+          "lb a1, 12(a0)",
+          "lh a1, 12(a0)",
+          "lhu a1, 16(a0)",
+          "lhu a1, 12(a0)",
+          "ld a1, 16(a0)",
+          "lh a1, 16(a0)",
+          "lw a1, 12(a0)",
+        ],
+        correctOptionIndexes: [8],
+        answer: "lhu a1, 12(a0)",
+      },
     ]
 );
