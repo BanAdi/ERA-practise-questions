@@ -1,6 +1,8 @@
 const topicSelect = document.getElementById("topicSelect");
 const statusEl = document.getElementById("status");
 const questionText = document.getElementById("questionText");
+const questionImageWrap = document.getElementById("questionImageWrap");
+const questionImage = document.getElementById("questionImage");
 const answerText = document.getElementById("answerText");
 const answerBlock = document.getElementById("answerBlock");
 const mcqBlock = document.getElementById("mcqBlock");
@@ -69,6 +71,9 @@ function revealCorrectAnswer(card) {
 function renderQuestion() {
   if (!currentQuestions.length) {
     questionText.textContent = "No questions available for this topic yet.";
+    questionImageWrap.hidden = true;
+    questionImage.removeAttribute("src");
+    questionImage.alt = "Question reference";
     answerText.textContent = "";
     answerBlock.hidden = true;
     mcqBlock.hidden = true;
@@ -80,6 +85,17 @@ function renderQuestion() {
 
   const card = currentQuestions[currentIndex];
   questionText.textContent = card.question;
+
+  if (card.imageSrc) {
+    questionImage.src = card.imageSrc;
+    questionImage.alt = card.imageAlt || "Question reference";
+    questionImageWrap.hidden = false;
+  } else {
+    questionImageWrap.hidden = true;
+    questionImage.removeAttribute("src");
+    questionImage.alt = "Question reference";
+  }
+
   answerText.textContent = card.answer;
   answerBlock.hidden = true;
   mcqResult.textContent = "";

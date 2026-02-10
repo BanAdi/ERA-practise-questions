@@ -152,6 +152,19 @@ h2 {
   white-space: pre-line;
 }
 
+.question-image-wrap {
+  margin: 0.3rem 0 1rem;
+}
+
+#questionImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
 .answer {
   background: #fff;
   border: 1px dashed #cfb394;
