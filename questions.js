@@ -369,6 +369,69 @@ const QUESTION_BANK = [
         answer:
           "Die Ueberbrueckung des Geschwindigkeitsunterschieds zwischen CPU und Hauptspeicher.",
       },
+      {
+        question:
+          "Welche der folgenden Aussagen zur Cache-Speicherverwaltung sind korrekt?",
+        options: [
+          "In einem voll-assoziativen Cache treten Konfliktfehler (Conflict Misses) haeufig auf.",
+          "Ein Write-Back Cache schreibt Daten erst beim Ersetzen der Cache-Zeile in den Hauptspeicher zurueck.",
+          "Compulsory Misses (Kaltstartfehler) lassen sich durch Vergroesserung des Caches nicht verhindern.",
+          "Ein direkt abbildender Cache (Direct Mapped) benoetigt mehr Vergleicher als ein 2-fach assoziativer Cache.",
+          "Bei einem N-fach satz-assoziativen Cache bestimmen die Index-Bits, in welches Set (Satz) eine Adresse abgebildet wird.",
+        ],
+        correctOptionIndexes: [1, 2, 4],
+        answer:
+          "Write-Back schreibt erst beim Ersetzen zurueck; Compulsory Misses sind unvermeidbar; Index-Bits bestimmen das Set.",
+      },
+      {
+        question:
+          "Welche Aussagen zu Pipeline-Konflikten (Hazards) in der behandelten 5-stufigen RISC-V Pipeline sind zutreffend?",
+        options: [
+          "Data Hazards entstehen durch Datenabhaengigkeiten zwischen Befehlen (z.B. Read-After-Write).",
+          "Write-After-Read (WAR) Abhaengigkeiten fuehren in dieser Pipeline zu Konflikten.",
+          "Das Einfuegen von NOPs (Stalling) ist eine moegliche Software/Compiler-Loesung fuer Data Hazards.",
+          "Control Hazards entstehen durch Aenderungen des Kontrollflusses (z.B. bei Spruengen).",
+          "Forwarding (Bypassing) kann jeden Data Hazard vollstaendig aufloesen, ohne dass der Prozessor angehalten werden muss.",
+        ],
+        correctOptionIndexes: [0, 2, 3],
+        answer:
+          "Data Hazards durch Abhaengigkeiten; Stalling ist eine Loesung; Control Hazards durch Spruenge.",
+      },
+      {
+        question:
+          "Welche der folgenden Mengen an booleschen Operatoren sind funktional vollstaendig? (Konstanten 0 und 1 sind nicht automatisch verfuegbar)",
+        options: ["{NAND}", "{NOR}", "{AND,OR}", "{AND,NOT}", "{XOR,1}"],
+        correctOptionIndexes: [0, 1, 3],
+        answer: "NAND; NOR; AND + NOT.",
+      },
+      {
+        question:
+          "Betrachten Sie die RISC-V Calling Convention. Welche Aussagen sind wahr?",
+        options: [
+          "Die Register s0 bis s11 sind Callee-saved (muessen von der aufgerufenen Funktion erhalten werden).",
+          "Die Register t0 bis t6 muessen vom Aufrufer (Caller) nicht gesichert werden, wenn er ihre Werte nach dem Aufruf noch benoetigt.",
+          "Das Register ra (Return Address) enthaelt die Ruecksprungadresse und wird vom Befehl jal (Jump and Link) aktualisiert.",
+          "Der Stack Pointer sp ist ein Callee-saved Register.",
+          "Funktionsargumente werden vorrangig ueber den Stack uebergeben.",
+        ],
+        correctOptionIndexes: [0, 2, 3],
+        answer:
+          "s0-s11 sind Callee-saved; ra enthaelt Ruecksprungadresse; sp ist Callee-saved.",
+      },
+      {
+        question:
+          "Welche Eigenschaften treffen auf BDDs (Binary Decision Diagrams) zu?",
+        options: [
+          "Ein reduziertes, geordnetes BDD (ROBDD) ist eine kanonische Darstellung einer booleschen Funktion (bei fester Variablenordnung).",
+          "Die Groesse eines BDDs ist unabhaengig von der gewaehlten Variablenordnung.",
+          "BDDs koennen verwendet werden, um die Erfuellbarkeit (SAT) einer Formel zu pruefen.",
+          "Jeder Pfad von der Wurzel zu einem Terminalknoten (0 oder 1) entspricht einer Variablenbelegung.",
+          "BDDs bestehen hauptsaechlich aus OR- und NOT-Gattern.",
+        ],
+        correctOptionIndexes: [0, 2, 3],
+        answer:
+          "ROBDD ist kanonisch; SAT-Pruefung ist moeglich; Pfade entsprechen Belegungen.",
+      },
     ],
   },
   {
