@@ -4,53 +4,83 @@
 // questions: list of { question, answer }
 const QUESTION_BANK = [
   {
-    topic: "Networking Basics",
+    topic: "MCQ",
     questions: [
       {
-        question: "What does DNS stand for?",
-        answer: "Domain Name System",
-      },
-      {
-        question: "Which protocol is used to fetch web pages?",
-        answer: "HTTP or HTTPS",
-      },
-      {
-        question: "What device forwards packets between networks?",
-        answer: "A router",
+        question: "Add your first MCQ question here.",
+        answer: "Add the correct answer here.",
       },
     ],
   },
   {
-    topic: "Databases",
+    topic: "Free-Text",
     questions: [
       {
-        question: "What does SQL stand for?",
-        answer: "Structured Query Language",
-      },
-      {
-        question: "Which SQL command is used to get data?",
-        answer: "SELECT",
-      },
-      {
-        question: "What is a primary key used for?",
-        answer: "To uniquely identify each row in a table",
+        question: "Add your first free-text question here.",
+        answer: "Add the expected answer here.",
       },
     ],
   },
   {
-    topic: "Software Engineering",
+    topic: "RISC-V",
     questions: [
       {
-        question: "What is version control used for?",
-        answer: "Tracking and managing code changes over time",
+        question: "Add your first RISC-V question here.",
+        answer: "Add the answer here.",
       },
+    ],
+  },
+  {
+    topic: "Stack",
+    questions: [
       {
-        question: "What does CI stand for in DevOps?",
-        answer: "Continuous Integration",
+        question: "Add your first Stack question here.",
+        answer: "Add the answer here.",
       },
+    ],
+  },
+  {
+    topic: "Truth Tables",
+    questions: [
       {
-        question: "Name one advantage of unit testing.",
-        answer: "Finds bugs early and improves refactoring safety",
+        question: "Add your first Truth Tables question here.",
+        answer: "Add the answer here.",
+      },
+    ],
+  },
+  {
+    topic: "Logic Gates",
+    questions: [
+      {
+        question: "Add your first Logic Gates question here.",
+        answer: "Add the answer here.",
+      },
+    ],
+  },
+  {
+    topic: "Graphs",
+    questions: [
+      {
+        question: "Add your first Graphs question here.",
+        answer: "Add the answer here.",
+      },
+    ],
+  },
+  {
+    topic: "Circuit Designs",
+    questions: [
+      {
+        question: "Add your first Circuit Designs question here.",
+        answer: "Add the answer here.",
+      },
+    ],
+  },
+  {
+    topic: "Pipelines",
+    questions: [
+      {
+        question: "Add your first Pipelines question here.",
+        answer: "Add the answer here.",
       },
     ],
   },
