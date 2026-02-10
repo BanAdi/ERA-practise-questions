@@ -13,6 +13,8 @@ const checkAnswerBtn = document.getElementById("checkAnswerBtn");
 const nextBtn = document.getElementById("nextBtn");
 const shuffleBtn = document.getElementById("shuffleBtn");
 
+const QUESTION_BANK = window.QUESTION_BANK || [];
+
 let currentTopic = null;
 let currentQuestions = [];
 let currentIndex = 0;

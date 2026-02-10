@@ -10,19 +10,18 @@ A lightweight website for practicing prefilled exam questions by topic.
 - Shuffle question order
 
 ## Edit Your Questions
-Update `questions.js` and add your own topics/questions.
+Question data is split by topic in the `questions/` folder:
+- `questions/mcq.js`
+- `questions/free-text.js`
+- `questions/risc-v.js`
+- `questions/stack.js`
+- `questions/truth-tables.js`
+- `questions/logic-gates.js`
+- `questions/graphs.js`
+- `questions/circuit-designs.js`
+- `questions/pipelines.js`
 
-Example format:
-
-```js
-{
-  topic: "Operating Systems",
-  questions: [
-    { question: "What is a process?", answer: "A running instance of a program" },
-    { question: "What is a thread?", answer: "A lightweight execution unit within a process" }
-  ]
-}
-```
+Each file registers one topic and its question list.
 
 ## Run Locally
 1. Open `index.html` directly in your browser.
