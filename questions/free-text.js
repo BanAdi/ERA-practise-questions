@@ -190,5 +190,48 @@ e) Lokalitaet
 Temporal locality (zeitlich): kuerzlich genutzte Daten werden bald wieder genutzt.
 Spatial locality (raeumlich): nach Zugriff auf Adresse X werden oft nahe Adressen (X+1, X+2, ...) genutzt.`,
     },
+    {
+      question: `Cache-Hierarchie-Aufgabe (a-e)
+
+Gegeben:
+- System mit 4 Kernen
+- je Kern ein L1-Cache
+- geteilter inklusiver L2-Cache
+- L2: 2 MiB, 16-fach assoziativ, Cachezeilenlaenge 64 Byte
+- Architektur: 32-Bit, Adressen 32 Bit breit
+
+a) Erklaeren Sie kurz den Unterschied zwischen inklusiver und exklusiver Cache-Hierarchie.
+
+b) Wie viele Cache-Sets hat der Cache?
+
+c) Wie viele Bits werden fuer Index, Offset und Tag benoetigt (byte-adressierbar)?
+
+d) In welchem Cache-Set (ab 0) wird Adresse 0x4FF gecached?
+
+e) Wann kann ein Conflict-Miss in einem mengenassoziativen Cache auftreten?`,
+      answer: `a) Inklusiv vs. exklusiv
+Inklusiv: Daten in einem hoeheren Level (z.B. L1) sind auch im darunterliegenden Level (z.B. L2) vorhanden.
+Exklusiv: Daten sind nicht redundant in mehreren Levels enthalten.
+
+b) Anzahl Cache-Sets
+#Sets = Cachegroesse / (Zeilengroesse * Assoziativitaet)
+     = 2 MiB / (64 B * 16)
+     = 2^21 / (2^6 * 2^4)
+     = 2^11
+     = 2048
+Antwort: 2048 Sets
+
+c) Index/Offset/Tag
+Index = log2(2048) = 11 Bits
+Offset = log2(64) = 6 Bits
+Tag = 32 - 11 - 6 = 15 Bits
+Antwort: Index 11, Offset 6, Tag 15
+
+d) Adresse 0x4FF
+Antwort: Set-Index 19
+
+e) Conflict-Miss
+Ein Conflict-Miss entsteht, wenn ein zuvor nutzbarer Block aus genau seinem Set verdraengt wurde (Set-Konflikt), obwohl der Cache insgesamt nicht der begrenzende Faktor waere (in vollassoziativ ggf. kein Miss).`,
+    },
   ]
 );
