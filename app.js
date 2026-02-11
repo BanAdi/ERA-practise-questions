@@ -10,6 +10,7 @@ const mcqOptions = document.getElementById("mcqOptions");
 const mcqResult = document.getElementById("mcqResult");
 const showAnswerBtn = document.getElementById("showAnswerBtn");
 const checkAnswerBtn = document.getElementById("checkAnswerBtn");
+const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const shuffleBtn = document.getElementById("shuffleBtn");
 
@@ -192,6 +193,15 @@ nextBtn.addEventListener("click", () => {
   }
 
   currentIndex = (currentIndex + 1) % currentQuestions.length;
+  renderQuestion();
+});
+
+prevBtn.addEventListener("click", () => {
+  if (!currentQuestions.length) {
+    return;
+  }
+
+  currentIndex = (currentIndex - 1 + currentQuestions.length) % currentQuestions.length;
   renderQuestion();
 });
 
